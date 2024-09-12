@@ -1,0 +1,33 @@
+﻿@model IEnumerable<User>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col">UserId</th>
+            <th scope="col"> FirstName</th>
+            <th scope="col"> LastName</th>
+            <th scope="col"> Email</th>
+            <th scope="col"> Password</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="col">@item.UserId</th>
+                <th scope="col">@item.FirstName</th>
+                <th scope="col">@item.Email</th>
+                <th scope="col">@item.LastName</th>
+                <th scope="col">@item.Password</th>
+                <th scope="col">
+                    <a asp-controller="User" asp-action="Login" asp-route-id="@item.UserId" class="btn btn-primary">Login</a>
+                    <a asp-controller="User" asp-action="Register" asp-route-id="@item.UserId" class="btn btn-warning mx-2">Register</a>
+
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
